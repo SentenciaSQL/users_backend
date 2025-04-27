@@ -70,6 +70,7 @@ public class UserServiceImpl implements UserServices {
             userDb.setName(user.getName());
             userDb.setLastname(user.getLastname());
             userDb.setEmail(user.getEmail());
+            userDb.setUsername(user.getUsername());
 
             List<Role> roles = getRoles(user);
 
