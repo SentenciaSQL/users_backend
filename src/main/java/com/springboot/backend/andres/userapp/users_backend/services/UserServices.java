@@ -1,6 +1,7 @@
 package com.springboot.backend.andres.userapp.users_backend.services;
 
 import com.springboot.backend.andres.userapp.users_backend.entities.User;
+import com.springboot.backend.andres.userapp.users_backend.models.UserRequest;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -15,7 +16,11 @@ public interface UserServices {
 
     Optional<User> findById(Long id);
 
+    Optional<User> findByUsername(String username);
+
     User save(User user);
+
+    Optional<User> update(UserRequest user, Long id);
 
     void deleteById(Long id);
 }

@@ -1,6 +1,7 @@
 package com.springboot.backend.andres.userapp.users_backend.controllers;
 
 import com.springboot.backend.andres.userapp.users_backend.entities.User;
+import com.springboot.backend.andres.userapp.users_backend.models.UserRequest;
 import com.springboot.backend.andres.userapp.users_backend.services.UserServices;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,18 +51,13 @@ public class UserController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<?> update(@Valid @RequestBody User user, BindingResult result,  @PathVariable Long id) {
+    public ResponseEntity<?> update(@Valid @RequestBody UserRequest user, BindingResult result, @PathVariable Long id) {
         ResponseEntity<?> errors = validation(result);
         if (errors != null) return errors;
 
-        Optional<User> userOptional = services.findById(id);
+        Optional<User> userOptional = services.update(user, id);
         if (userOptional.isPresent()) {
-            User userDb = userOptional.orElseThrow();
-            userDb.setName(user.getName());
-            userDb.setLastname(user.getLastname());
-            userDb.setEmail(user.getEmail());
-            userDb.setPassword(user.getPassword());
-            return ResponseEntity.status(HttpStatus.CREATED).body(services.save(userDb));
+            return ResponseEntity.status(HttpStatus.OK).body(userOptional.orElseThrow());
         }
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
     }

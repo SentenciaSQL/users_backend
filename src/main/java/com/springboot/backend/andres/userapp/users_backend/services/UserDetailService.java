@@ -1,6 +1,7 @@
 package com.springboot.backend.andres.userapp.users_backend.services;
 
 import com.springboot.backend.andres.userapp.users_backend.entities.User;
+import com.springboot.backend.andres.userapp.users_backend.models.CustomUserDetails;
 import com.springboot.backend.andres.userapp.users_backend.repositories.UserRepository;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -38,6 +39,16 @@ public class UserDetailService implements UserDetailsService {
                 .map(role -> new SimpleGrantedAuthority(role.getName()))
                 .collect(Collectors.toList());
 
+
+        return new CustomUserDetails(
+                user.getUsername(),
+                user.getPassword(),
+                user.getName(),
+                user.getLastname(),
+                user.getEmail(),
+                authorities
+        );
+        /*
         return new org.springframework.security.core.userdetails.User(
                 username,
                 user.getPassword(),
@@ -45,6 +56,6 @@ public class UserDetailService implements UserDetailsService {
                 true,
                 true,
                 true,
-                authorities);
+                authorities);*/
     }
 }
