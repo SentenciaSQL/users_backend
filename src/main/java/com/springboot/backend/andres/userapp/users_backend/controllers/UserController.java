@@ -63,11 +63,10 @@ public class UserController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> delete(@PathVariable Long id) {
+    public ResponseEntity<?> delete(@PathVariable Long id) {
         Optional<User> userOptional = services.findById(id);
         if (userOptional.isPresent()) {
-            services.deleteById(id);
-            return ResponseEntity.noContent().build();
+            return ResponseEntity.ok(services.deleteById(id));
         }
         return ResponseEntity.notFound().build();
     }
