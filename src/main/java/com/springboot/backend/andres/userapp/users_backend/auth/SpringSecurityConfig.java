@@ -53,7 +53,7 @@ public class SpringSecurityConfig {
                 .anyRequest().authenticated())
                 .cors(cors -> cors.configurationSource(configurationSource()))
                 .addFilter(new JwtAuthenticationFilter(authenticationManager()))
-                .addFilter(new JwtValidationFilter(authenticationManager()
+                .addFilter(new JwtValidationFilter(authenticationManager()))
                 .csrf(config -> config.disable())
                 .sessionManagement(management -> management.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .build();
