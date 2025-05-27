@@ -1,0 +1,17 @@
+com\springboot\backend\andres\userapp\users_backend\auth\SpringSecurityConfig.class
+com\springboot\backend\andres\userapp\users_backend\auth\TokenJwtConfig.class
+com\springboot\backend\andres\userapp\users_backend\services\UserServiceImpl.class
+com\springboot\backend\andres\userapp\users_backend\auth\filter\JwtValidationFilter.class
+com\springboot\backend\andres\userapp\users_backend\models\CustomUserDetails.class
+com\springboot\backend\andres\userapp\users_backend\services\UserDetailService.class
+com\springboot\backend\andres\userapp\users_backend\entities\User.class
+com\springboot\backend\andres\userapp\users_backend\models\UserRequest.class
+com\springboot\backend\andres\userapp\users_backend\UsersBackendApplication.class
+com\springboot\backend\andres\userapp\users_backend\repositories\RoleRepository.class
+com\springboot\backend\andres\userapp\users_backend\controllers\UserController.class
+com\springboot\backend\andres\userapp\users_backend\auth\filter\JwtAuthenticationFilter.class
+com\springboot\backend\andres\userapp\users_backend\repositories\UserRepository.class
+com\springboot\backend\andres\userapp\users_backend\entities\Role.class
+com\springboot\backend\andres\userapp\users_backend\services\UserServices.class
+com\springboot\backend\andres\userapp\users_backend\auth\SimpleGrantedAuthorityJsonCreator.class
+com\springboot\backend\andres\userapp\users_backend\models\IUser.class
